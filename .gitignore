@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+*.zip
+fifa_wc_2026_data/
+.venv/
+.DS_Store
