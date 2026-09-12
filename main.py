@@ -10,6 +10,7 @@ from src import rq3_possession_threat
 from src import rq4_expected_goals
 from src import rq5_player_efficiency
 from src import clustering
+from src import visualization
 
 
 def main():
@@ -24,7 +25,8 @@ def main():
     goal_perf, rq4_fit, team_xg = rq4_expected_goals.run(data)
     player_impact, top_players = rq5_player_efficiency.run(data)
     clustered, cluster_profile, cluster_names = clustering.run(match_team)
-    return data, team_analysis, match_team, tactical, goal_perf, player_impact, clustered
+    stage_goal_xg, stage_test, team_summary = visualization.run(data, goal_perf, match_team)
+    return data, team_analysis, match_team, tactical, goal_perf, player_impact, clustered, team_summary
 
 
 if __name__ == "__main__":
