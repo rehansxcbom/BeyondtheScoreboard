@@ -6,6 +6,7 @@ from src.data_cleaning import clean_all
 from src import eda
 from src import rq1_team_strength
 from src import rq2_match_success
+from src import rq3_possession_threat
 
 
 def main():
@@ -16,7 +17,8 @@ def main():
     eda.run(data)
     team_analysis, rq1_correlations = rq1_team_strength.run(data)
     match_team, rq2_validation = rq2_match_success.run(data)
-    return data, team_analysis, match_team
+    tactical, rq3_win_rates = rq3_possession_threat.run(match_team)
+    return data, team_analysis, match_team, tactical
 
 
 if __name__ == "__main__":
