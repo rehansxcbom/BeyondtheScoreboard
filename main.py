@@ -9,6 +9,7 @@ from src import rq2_match_success
 from src import rq3_possession_threat
 from src import rq4_expected_goals
 from src import rq5_player_efficiency
+from src import clustering
 
 
 def main():
@@ -22,7 +23,8 @@ def main():
     tactical, rq3_win_rates = rq3_possession_threat.run(match_team)
     goal_perf, rq4_fit, team_xg = rq4_expected_goals.run(data)
     player_impact, top_players = rq5_player_efficiency.run(data)
-    return data, team_analysis, match_team, tactical, goal_perf, player_impact
+    clustered, cluster_profile, cluster_names = clustering.run(match_team)
+    return data, team_analysis, match_team, tactical, goal_perf, player_impact, clustered
 
 
 if __name__ == "__main__":
